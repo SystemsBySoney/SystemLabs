@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motivation Got Me Started. Systems Are What Kept Me Going. — System Labs</title>
+<meta name="description" content="On building a life with a full-time job, a major exam, and no margin for error — and what I actually had to change to make it work.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Epilogue:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:           #f5f7f5;
+    --surface:      #ffffff;
+    --ink:          #1b2b1e;
+    --ink-mid:      #3d5242;
+    --ink-soft:     #7a9180;
+    --navy:         #1b2a4a;
+    --teal:         #1a7f7a;
+    --teal-light:   #d0ecea;
+    --magenta:      #b52d6e;
+    --magenta-light:#f5d4e4;
+    --forest:       #2d5a3d;
+    --forest-light: #daeade;
+    --nude:         #f0ebe4;
+    --nude-border:  #d9d0c5;
+    --nude-text:    #8a7f74;
+    --rule:         #dce8de;
+    --rule-strong:  #b8ccbc;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Epilogue', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: var(--surface);
+    border-bottom: 1.5px solid var(--rule);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-left { display: flex; align-items: baseline; gap: 0.75rem; }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-logo span { color: var(--teal); }
+
+  .nav-badge {
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    font-weight: 500;
+    border: 1px solid var(--magenta);
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+  }
+
+  .nav-back {
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s;
+  }
+
+  .nav-back:hover { color: var(--teal); }
+
+  /* POST LAYOUT */
+  .post-wrap {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 4.5rem 2rem 8rem;
+    animation: fadeUp 0.4s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* EYEBROW — post type label + read time */
+  .post-eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.75rem;
+  }
+
+  .post-type-badge {
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 0.22rem 0.75rem;
+    border-radius: 20px;
+    border: 1.5px solid var(--teal);
+    color: var(--teal);
+    background: var(--teal-light);
+  }
+
+  .read-time {
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+  }
+
+  /* HEADLINE */
+  h1.post-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .post-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: var(--ink-mid);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
+
+  /* DECO RULE */
+  .deco-rule {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 2.25rem 0;
+  }
+
+  .deco-rule-line { flex: 1; height: 1px; background: var(--rule); }
+
+  .deco-diamond {
+    width: 7px; height: 7px;
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  .d-t { background: var(--teal); }
+  .d-m { background: var(--magenta); }
+  .d-f { background: var(--forest); }
+
+  /* BODY */
+  .post-body p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--ink-mid);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+
+  .post-body p.lead {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  .post-body h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 2.75rem 0 0.9rem;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+
+  .section-label {
+    display: block;
+    font-size: 0.63rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--magenta);
+    margin: 2.75rem 0 0.4rem;
+  }
+
+  /* PULLQUOTE */
+  .pullquote {
+    position: relative;
+    margin: 2.5rem -1rem;
+    padding: 1.75rem 2rem 1.75rem 2.25rem;
+    background: var(--teal-light);
+    border-left: 4px solid var(--teal);
+  }
+
+  .pullquote::before {
+    content: '\201C';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    color: var(--teal);
+    opacity: 0.2;
+    position: absolute;
+    top: -0.5rem;
+    left: 0.75rem;
+    line-height: 1;
+  }
+
+  .pullquote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem !important;
+    line-height: 1.55 !important;
+    color: var(--forest) !important;
+    font-style: italic;
+    font-weight: 600 !important;
+    margin: 0 !important;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* EXPERIMENT CARD */
+  .experiment-card {
+    background: var(--surface);
+    border: 1.5px solid var(--rule-strong);
+    border-top: 4px solid var(--forest);
+    padding: 1.5rem 1.75rem;
+    margin: 2rem 0;
+    border-radius: 2px;
+  }
+
+  .experiment-card-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--forest);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+
+  .experiment-card p {
+    font-size: 0.95rem !important;
+    color: var(--ink-mid) !important;
+    margin-bottom: 0.5rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .experiment-card p:last-child { margin-bottom: 0 !important; }
+
+  /* CLOSING FOOTER BLOCK */
+  .post-closing {
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1.5px solid var(--rule);
+  }
+
+  .closing-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .closing-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    line-height: 1.2;
+  }
+
+  .closing-logo .cl-system { color: var(--navy); }
+  .closing-logo .cl-labs   { color: var(--teal); }
+
+  .closing-tagline {
+    font-size: 0.8rem;
+    color: var(--ink);
+    font-weight: 300;
+    letter-spacing: 0.01em;
+  }
+
+  /* NUDE CHIPS */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 1.5rem;
+  }
+
+  .chips span {
+    font-size: 0.67rem;
+    letter-spacing: 0.03em;
+    padding: 0.22rem 0.7rem;
+    border-radius: 20px;
+    background: var(--nude);
+    border: 1px solid var(--nude-border);
+    color: var(--nude-text);
+    font-weight: 400;
+  }
+
+  /* POST NAV */
+  .post-nav {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1.5px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .post-nav a {
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--teal);
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .post-nav a:hover { opacity: 0.75; }
+
+  /* COLOR PIPS */
+  .color-pips {
+    position: fixed;
+    right: 1.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 50;
+  }
+
+  .cpip {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    opacity: 0.55;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .cpip:hover { opacity: 1; transform: scale(1.5); }
+
+  /* SITE FOOTER */
+  footer {
+    background: var(--surface);
+    border-top: 1.5px solid var(--rule);
+    padding: 2rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
+    text-decoration: none;
+  }
+
+  .footer-logo span { color: var(--teal); }
+
+  .footer-note {
+    font-size: 0.75rem;
+    color: var(--magenta);
+    font-style: italic;
+  }
+
+  @media (max-width: 700px) {
+    nav { padding: 1rem 1.25rem; }
+    .post-wrap { padding: 3rem 1.25rem 6rem; }
+    .pullquote { margin: 2rem 0; }
+    .color-pips { display: none; }
+    footer { padding: 1.5rem 1.25rem; flex-direction: column; gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="color-pips">
+  <div class="cpip" style="background:var(--teal)"></div>
+  <div class="cpip" style="background:var(--magenta)"></div>
+  <div class="cpip" style="background:var(--forest)"></div>
+</div>
+
+<nav>
+  <div class="nav-left">
+    <a href="index.html" class="nav-logo">System<span>Labs</span></a>
+    <span class="nav-badge">Beta</span>
+  </div>
+  <a href="index.html" class="nav-back">← All posts</a>
+</nav>
+
+<div class="post-wrap">
+
+  <div class="post-eyebrow">
+    <span class="post-type-badge">Experiment Log</span>
+    <span class="read-time">5 min read</span>
+  </div>
+
+  <h1 class="post-title">Motivation Got Me Started. Systems Are What Kept Me Going.</h1>
+  <p class="post-subtitle">On building a life with a full-time job, a major exam, and no margin for error.</p>
+
+  <div class="deco-rule">
+    <div class="deco-rule-line"></div>
+    <div class="deco-diamond d-t"></div>
+    <div class="deco-diamond d-m"></div>
+    <div class="deco-diamond d-f"></div>
+    <div class="deco-rule-line"></div>
+  </div>
+
+  <div class="post-body">
+
+    <p class="lead">I used to think the problem was discipline. If I wanted it badly enough — consistently enough — I'd find a way to get everything done.</p>
+
+    <p>Then I started studying for the MCAT while working full-time, and that belief fell apart fast.</p>
+
+    <p>Not because I wasn't committed. I was. But commitment doesn't answer the question at 8pm after a full day of back-to-back meetings, when your brain is empty and your study session is still ahead of you.</p>
+
+    <p>Motivation doesn't fix a fragmented schedule. It doesn't clear a demanding job from your plate or pause a life that keeps moving. What I needed wasn't more drive. I needed a better structure.</p>
+
+    <span class="section-label">The actual problem</span>
+    <h2>Most Productivity Advice Was Built for a Different Life</h2>
+
+    <p>Most time management advice assumes conditions that don't exist for most people — long uninterrupted blocks, predictable energy, a calendar you control. Wake up earlier. Build the perfect routine. Time-block everything. You'll be fine.</p>
+
+    <p>That's not most people's lives. My days shift constantly. Meetings run over. Urgent work cuts in. Evenings don't always arrive with anything left in them. The standard frameworks break the moment life gets messy — and life is mostly messy.</p>
+
+    <div class="pullquote">
+      <p>Real life doesn't have ideal conditions. Any system worth using has to work inside those constraints — not around them.</p>
+    </div>
+
+    <span class="section-label">The shift</span>
+    <h2>A Different Question Changed Everything</h2>
+
+    <p>The shift wasn't a new app or a better planner. It was a different question.</p>
+
+    <p>Instead of asking <em>how do I stay motivated?</em> I started asking: <em>what structure makes this easier regardless of how I feel?</em></p>
+
+    <p>I stopped designing around my best days and started designing for my worst ones. I built rules in advance so I wasn't negotiating with myself every night. And I started running actual experiments — not adopting someone else's system wholesale, but testing things against my real schedule and seeing what held.</p>
+
+    <div class="experiment-card">
+      <div class="experiment-card-label">⬡ The questions that actually matter</div>
+      <p>What works in my real schedule — not an ideal one?</p>
+      <p>What breaks under pressure?</p>
+      <p>What holds up consistently over weeks, not just good days?</p>
+    </div>
+
+    <p>Some things worked. A lot didn't, at first. That's the point.</p>
+
+    <span class="section-label">What this is</span>
+    <h2>Introducing System Labs</h2>
+
+    <p>This blog is a lab. Not a highlight reel, not a list of life hacks, not a polished system handed down from optimal conditions. A lab.</p>
+
+    <p>I'm a healthcare technology professional working full-time while studying for a major exam. Managing multiple priorities isn't a side challenge for me — it's the entire environment. So instead of searching for the perfect system, I'm building one.</p>
+
+    <p>Each Experiment Log post documents a real problem, a system tested against it, and an honest account of what happened — what I kept, changed, and dropped. Field Notes are shorter: mid-experiment observations on what's holding, what's fraying, and what surprised me.</p>
+
+    <span class="section-label">The only promise</span>
+    <h2>I Won't Pretend This Is Simpler Than It Is</h2>
+
+    <p>Balancing a full-time career and serious long-term goals is genuinely hard. I'm not going to say otherwise.</p>
+
+    <p>What I will show is how the right systems make it more sustainable — less friction, fewer daily decisions, more consistency. Not easy. But doable.</p>
+
+    <p>If you're trying to manage your time, your energy, and your priorities without burning out or constantly falling behind — this is where I'm figuring it out. You're welcome to follow along.</p>
+
+  </div>
+
+  <div class="deco-rule">
+    <div class="deco-rule-line"></div>
+    <div class="deco-diamond d-m"></div>
+    <div class="deco-rule-line"></div>
+  </div>
+
+  <div class="post-closing">
+    <div class="closing-brand">
+      <a href="index.html" class="closing-logo">
+        <span class="cl-system">System</span><span class="cl-labs">Labs</span>
+      </a>
+      <span class="closing-tagline">Experiments in building systems that hold up in real life</span>
+    </div>
+    <div class="chips">
+      <span>productivity systems</span>
+      <span>time management</span>
+      <span>managing multiple priorities</span>
+      <span>MCAT prep</span>
+      <span>study while working</span>
+    </div>
+  </div>
+
+  <div class="post-nav">
+    <a href="index.html">← Home</a>
+    <a href="post-2.html">Next post →</a>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">System<span>Labs</span></a>
+  <span class="footer-note">Built in the margins of a full life.</span>
+</footer>
+
+</body>
+</html>
