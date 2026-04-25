@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>You Don't Have a Motivation Problem. You Have a Systems Problem. — System Labs</title>
 <meta name="description" content="Why discipline keeps failing you — and what actually works when life doesn't cooperate.">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Epilogue:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Epilogue:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg:           #f5f7f5;
@@ -67,7 +67,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--navy);
+    color: var(--magenta);
     text-decoration: none;
     letter-spacing: -0.01em;
   }
@@ -111,29 +111,35 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* EYEBROW */
+  /* EYEBROW — top right stamp */
   .post-eyebrow {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: flex-end;
     margin-bottom: 1.75rem;
   }
 
-  /* Field Notes badge in magenta */
-  .post-type-badge {
-    font-size: 0.6rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 500;
-    padding: 0.22rem 0.75rem;
-    border-radius: 20px;
-    border: 1.5px solid var(--magenta);
-    color: var(--magenta);
-    background: var(--magenta-light);
+  .post-type-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
   }
 
-  .read-time {
-    font-size: 0.75rem;
+  .post-type-label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    line-height: 1.2;
+  }
+
+  .stamp-date {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
     color: var(--ink-soft);
   }
 
@@ -143,7 +149,7 @@
     font-size: clamp(2.2rem, 5vw, 3.2rem);
     font-weight: 700;
     line-height: 1.15;
-    color: var(--ink);
+    color: var(--navy);
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
   }
@@ -215,21 +221,21 @@
     margin: 2.75rem 0 0.4rem;
   }
 
-  /* PULLQUOTE — magenta for post 2 */
+  /* PULLQUOTE — softened blush */
   .pullquote {
     position: relative;
     margin: 2.5rem -1rem;
     padding: 1.75rem 2rem 1.75rem 2.25rem;
-    background: var(--magenta-light);
-    border-left: 4px solid var(--magenta);
+    background: #f9edf2;
+    border-left: 4px solid #d9879f;
   }
 
   .pullquote::before {
     content: '\201C';
     font-family: 'Cormorant Garamond', serif;
     font-size: 5rem;
-    color: var(--magenta);
-    opacity: 0.2;
+    color: #d9879f;
+    opacity: 0.25;
     position: absolute;
     top: -0.5rem;
     left: 0.75rem;
@@ -248,11 +254,11 @@
     z-index: 1;
   }
 
-  /* EXPERIMENT CARD */
+  /* EXPERIMENT CARD — slate blue */
   .experiment-card {
-    background: var(--surface);
-    border: 1.5px solid var(--rule-strong);
-    border-top: 4px solid var(--forest);
+    background: #f0f3f8;
+    border: 1.5px solid #c8d4e8;
+    border-top: 4px solid #3a5a8c;
     padding: 1.5rem 1.75rem;
     margin: 2rem 0;
     border-radius: 2px;
@@ -262,7 +268,7 @@
     font-size: 0.62rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--forest);
+    color: #3a5a8c;
     font-weight: 500;
     margin-bottom: 0.75rem;
   }
@@ -275,6 +281,20 @@
   }
 
   .experiment-card p:last-child { margin-bottom: 0 !important; }
+
+  /* SIGNATURE */
+  .signature-block { margin-top: 2rem; }
+
+  .signature-name {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #b0a090;
+    display: block;
+    line-height: 1.2;
+  }
 
   /* CLOSING FOOTER BLOCK */
   .post-closing {
@@ -298,7 +318,7 @@
     line-height: 1.2;
   }
 
-  .closing-logo .cl-system { color: var(--navy); }
+  .closing-logo .cl-system { color: var(--magenta); }
   .closing-logo .cl-labs   { color: var(--teal); }
 
   .closing-tagline {
@@ -341,7 +361,7 @@
     font-size: 0.8rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--teal);
+    color: var(--navy);
     text-decoration: none;
     font-weight: 500;
     display: flex;
@@ -386,7 +406,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--navy);
+    color: var(--magenta);
     text-decoration: none;
   }
 
@@ -394,7 +414,7 @@
 
   .footer-note {
     font-size: 0.75rem;
-    color: var(--magenta);
+    color: var(--navy);
     font-style: italic;
   }
 
@@ -426,12 +446,14 @@
 <div class="post-wrap">
 
   <div class="post-eyebrow">
-    <span class="post-type-badge">Field Notes</span>
-    <span class="read-time">4 min read</span>
+    <div class="post-type-block">
+      <span class="post-type-label">Field Note</span>
+      <span class="stamp-date">04–27–26</span>
+    </div>
   </div>
 
   <h1 class="post-title">You Don't Have a Motivation Problem. You Have a Systems Problem.</h1>
-  <p class="post-subtitle">Why discipline keeps failing you — and what actually works when life doesn't cooperate.</p>
+  <p class="post-subtitle">The thing that's actually failing you — and why trying harder won't fix it.</p>
 
   <div class="deco-rule">
     <div class="deco-rule-line"></div>
@@ -443,69 +465,46 @@
 
   <div class="post-body">
 
-    <p class="lead">The productivity industry has a story it loves to tell: that you're not reaching your goals because you're not disciplined enough.</p>
+    <p class="lead">I used to end every Sunday night making the same promise. This week I'll be more disciplined. This week I'll actually follow through.</p>
 
-    <p>Work on yourself, the story goes, and the results will follow. It's a compelling narrative. It's also largely wrong.</p>
+    <p>It never lasted past Wednesday. Not because I lacked commitment — I had plenty of that. But commitment isn't a system. And without a system, I was just negotiating with myself on repeat, burning the same energy every day on decisions I'd already made the day before.</p>
 
-    <p>Discipline isn't your problem. Motivation isn't your problem. The problem is that most people are trying to operate without structures designed for the reality of their lives — and no amount of willpower compensates for a system that breaks under pressure.</p>
+    <p>The productivity industry has a ready answer for this: you need more discipline. Work on yourself, and the results will follow. It's a compelling story. It also locates the problem entirely in you — which is convenient, and mostly wrong.</p>
 
-    <span class="section-label">Why motivation falls short</span>
-    <h2>Both Are Finite Resources</h2>
-
-    <p>Motivation is highest when you're rested, excited, at the start of something. It drops in week six, when work is heavy, when you've already made twenty decisions before noon. Relying on it as your primary engine means running on something that depletes.</p>
-
-    <p>Discipline has the same problem. Research on decision fatigue is clear: the quality of our choices degrades across a day. By the time a busy professional reaches their evening study session, they're often running on fumes. No amount of "push through it" changes that underlying fact.</p>
+    <p>Discipline and motivation are both finite. Motivation peaks at the start of something, then drops in week six when work is heavy and you've already made thirty decisions before noon. Discipline degrades the same way — research on decision fatigue is unambiguous about this. By the time a busy professional reaches their evening study session, they're often running on nothing. No amount of "push through it" changes that.</p>
 
     <div class="pullquote">
       <p>Motivation is a spark. Systems are the infrastructure. You can't run a city on sparks.</p>
     </div>
 
-    <span class="section-label">What real life looks like</span>
-    <h2>Interrupted, Uneven, Unpredictable</h2>
+    <p>The real issue isn't willpower. It's that most people are using tools built for ideal conditions in a life that rarely offers them. Time management advice assumes reliable focus blocks, predictable energy, a calendar you control. That's not most people's reality.</p>
 
-    <p>Time management advice is written for a clean version of life — reliable focus blocks, consistent energy, a calendar you control. That's not what most professionals experience.</p>
+    <p>My reality: a customer call runs long and eats the buffer I'd planned on. A project costs more cognitive load than I'd estimated. By evening, the two hours I'd mentally reserved have quietly disappeared. This isn't a scheduling failure. It's a design failure. The system — if you can call it that — had no tolerance for the life I was actually living.</p>
 
-    <p>Real life is a customer call that runs thirty minutes over. A project that costs more cognitive load than anticipated. An evening where fatigue swallows the two hours you'd planned on. Managing multiple priorities isn't a scheduling problem. It's a design problem — and the design has to hold up on hard days, not just good ones.</p>
-
-    <p>The reason productivity advice keeps failing people isn't effort. It's that they're applying tools built for ideal conditions to a life that rarely offers them.</p>
-
-    <span class="section-label">What actually works</span>
-    <h2>Systems Built for Friction, Not Against It</h2>
-
-    <p>A system, practically speaking, is any structure that makes a desired behavior easier to do consistently — especially when conditions aren't perfect. It reduces real-time decisions. It creates defaults. It lowers the activation energy for the things that matter.</p>
+    <p>A system worth using does something specific: it makes the right behavior easier to do consistently, especially when conditions aren't perfect. It removes real-time decisions. It creates defaults. It holds up on hard days, not just good ones.</p>
 
     <div class="experiment-card">
-      <div class="experiment-card-label">⬡ What a real system does</div>
+      <div class="experiment-card-label">⬡ What a real system actually does</div>
       <p>Works when you don't feel ready — not only when you do.</p>
-      <p>Designed around low-energy moments, not peak performance.</p>
+      <p>Designed around your lowest-energy moments, not peak performance.</p>
       <p>Has rules set in advance so you're not negotiating at 9pm.</p>
     </div>
 
-    <p>The piece most frameworks skip: iteration. They hand you a system and assume it fits. But your constraints are specific — your schedule, your work demands, your energy patterns. The only system worth trusting is one you've actually tested against your real life.</p>
+    <p>The part most frameworks skip is iteration. They hand you a system and assume it fits. But the only system worth trusting is one you've tested against your actual constraints — and adjusted when it broke.</p>
 
-    <span class="section-label">What this blog is</span>
-    <h2>System Labs: Where Systems Get Tested, Not Assumed</h2>
+    <p>That's the work I'm documenting here. Not a finished method. An ongoing test. If you read Post 1, you know where this started — a cold cup of coffee, a textbook I wasn't reading, and the slow realization that wanting something badly enough isn't the same as having a structure for it.</p>
 
-    <p>System Labs is where I document that process. I'm a working professional balancing a demanding career in healthcare technology with serious long-term goals — including studying for a major standardized exam while managing everything else a full life brings. I'm not writing from the other side of it. I'm in it.</p>
+    <p>This is what comes after that realization.</p>
 
-    <p>What you'll find here isn't best practices handed down from optimal conditions. It's an ongoing experiment — what I'm testing, what failed and why, what I refined. Practical approaches to productivity systems, time management for busy professionals, and managing multiple priorities without pretending the hard parts don't exist.</p>
-
-    <p>Nothing here is assumed to work until it's been tested. That's the lab.</p>
-
-    <span class="section-label">The invitation</span>
-    <h2>Follow Along, Test for Yourself</h2>
-
-    <p>If you're a professional with goals that extend beyond your job — and a schedule that makes both feel like competing priorities — this is for you. Not to give you answers, but to show you a method for finding your own.</p>
-
-    <p>Systems over motivation. Iteration over inspiration. Real conditions, not ideal ones.</p>
-
-    <p>That's what we're building here.</p>
+    <div class="signature-block">
+      <span class="signature-name">— THE SYSTEMS SCIENTIST</span>
+    </div>
 
   </div>
 
   <div class="deco-rule">
     <div class="deco-rule-line"></div>
-    <div class="deco-diamond d-f"></div>
+    <div class="deco-diamond d-m"></div>
     <div class="deco-rule-line"></div>
   </div>
 
