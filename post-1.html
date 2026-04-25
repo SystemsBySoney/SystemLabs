@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Motivation Got Me Started. Systems Are What Kept Me Going. — System Labs</title>
 <meta name="description" content="On building a life with a full-time job, a major exam, and no margin for error — and what I actually had to change to make it work.">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Epilogue:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Epilogue:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg:           #f5f7f5;
@@ -67,7 +67,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--navy);
+    color: var(--magenta);
     text-decoration: none;
     letter-spacing: -0.01em;
   }
@@ -111,24 +111,113 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* EYEBROW — post type label + read time */
+  /* EYEBROW — top right stamp block */
   .post-eyebrow {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: flex-end;
     margin-bottom: 1.75rem;
   }
 
-  .post-type-badge {
-    font-size: 0.6rem;
+  .post-type-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+  }
+
+  /* Typewriter label */
+  .post-type-label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.05rem;
+    font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    font-weight: 500;
-    padding: 0.22rem 0.75rem;
-    border-radius: 20px;
-    border: 1.5px solid var(--teal);
-    color: var(--teal);
-    background: var(--teal-light);
+    color: var(--magenta);
+    line-height: 1.2;
+  }
+
+  .stamp-date {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+  }
+
+  .dict-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin: 2rem 0;
+  }
+
+  .dict-card {
+    background: var(--surface);
+    border: 1.5px solid var(--rule);
+    border-radius: 3px;
+    padding: 1.4rem 1.5rem 1.4rem 1.75rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .dict-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 4px;
+  }
+
+  .dc-teal::before    { background: var(--teal); }
+  .dc-magenta::before { background: var(--magenta); }
+
+  .dict-term {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.1rem;
+  }
+
+  .dt-teal    { color: var(--teal); }
+  .dt-magenta { color: var(--magenta); }
+
+  .dict-pos {
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-bottom: 0.7rem;
+    display: block;
+  }
+
+  .dict-hr { height: 1px; background: var(--rule); margin-bottom: 0.8rem; }
+
+  .dict-def {
+    font-size: 0.85rem !important;
+    color: var(--ink-mid) !important;
+    line-height: 1.7 !important;
+    font-weight: 300 !important;
+    margin: 0 !important;
+  }
+
+  /* SIGNATURE */
+  .signature-block {
+    margin-top: 2rem;
+  }
+
+  .signature-name {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #b0a090;
+    display: block;
+    line-height: 1.2;
+  }
+
+  @media (max-width: 600px) {
+    .dict-grid { grid-template-columns: 1fr; }
   }
 
   .read-time {
@@ -136,13 +225,13 @@
     color: var(--ink-soft);
   }
 
-  /* HEADLINE */
+  /* HEADLINE — serif navy */
   h1.post-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2.2rem, 5vw, 3.2rem);
     font-weight: 700;
     line-height: 1.15;
-    color: var(--ink);
+    color: var(--navy);
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
   }
@@ -214,21 +303,21 @@
     margin: 2.75rem 0 0.4rem;
   }
 
-  /* PULLQUOTE */
+  /* PULLQUOTE — softened muted rose */
   .pullquote {
     position: relative;
     margin: 2.5rem -1rem;
     padding: 1.75rem 2rem 1.75rem 2.25rem;
-    background: var(--teal-light);
-    border-left: 4px solid var(--teal);
+    background: #f9edf2;
+    border-left: 4px solid #d9879f;
   }
 
   .pullquote::before {
     content: '\201C';
     font-family: 'Cormorant Garamond', serif;
     font-size: 5rem;
-    color: var(--teal);
-    opacity: 0.2;
+    color: #d9879f;
+    opacity: 0.25;
     position: absolute;
     top: -0.5rem;
     left: 0.75rem;
@@ -239,7 +328,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.3rem !important;
     line-height: 1.55 !important;
-    color: var(--forest) !important;
+    color: var(--ink) !important;
     font-style: italic;
     font-weight: 600 !important;
     margin: 0 !important;
@@ -249,9 +338,9 @@
 
   /* EXPERIMENT CARD */
   .experiment-card {
-    background: var(--surface);
-    border: 1.5px solid var(--rule-strong);
-    border-top: 4px solid var(--forest);
+    background: #f0f3f8;
+    border: 1.5px solid #c8d4e8;
+    border-top: 4px solid #3a5a8c;
     padding: 1.5rem 1.75rem;
     margin: 2rem 0;
     border-radius: 2px;
@@ -261,7 +350,7 @@
     font-size: 0.62rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--forest);
+    color: #3a5a8c;
     font-weight: 500;
     margin-bottom: 0.75rem;
   }
@@ -297,7 +386,7 @@
     line-height: 1.2;
   }
 
-  .closing-logo .cl-system { color: var(--navy); }
+  .closing-logo .cl-system { color: var(--magenta); }
   .closing-logo .cl-labs   { color: var(--teal); }
 
   .closing-tagline {
@@ -340,7 +429,7 @@
     font-size: 0.8rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--teal);
+    color: var(--navy);
     text-decoration: none;
     font-weight: 500;
     display: flex;
@@ -385,7 +474,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--navy);
+    color: var(--magenta);
     text-decoration: none;
   }
 
@@ -393,7 +482,7 @@
 
   .footer-note {
     font-size: 0.75rem;
-    color: var(--magenta);
+    color: var(--navy);
     font-style: italic;
   }
 
@@ -425,12 +514,14 @@
 <div class="post-wrap">
 
   <div class="post-eyebrow">
-    <span class="post-type-badge">Experiment Log</span>
-    <span class="read-time">5 min read</span>
+    <div class="post-type-block">
+      <span class="post-type-label">Field Note</span>
+      <span class="stamp-date">04–27–26</span>
+    </div>
   </div>
 
   <h1 class="post-title">Motivation Got Me Started. Systems Are What Kept Me Going.</h1>
-  <p class="post-subtitle">On building a life with a full-time job, a major exam, and no margin for error.</p>
+  <p class="post-subtitle">Where this started, why existing systems didn't work, and what I'm building instead.</p>
 
   <div class="deco-rule">
     <div class="deco-rule-line"></div>
@@ -442,33 +533,17 @@
 
   <div class="post-body">
 
-    <p class="lead">I used to think the problem was discipline. If I wanted it badly enough — consistently enough — I'd find a way to get everything done.</p>
+    <p class="lead">The night I finally admitted this wasn't working, I was sitting at my desk at 9pm with a cold cup of coffee, an MCAT prep textbook open to page one, and exactly zero intention of reading it. I'd told myself I'd study after work. I always told myself that.</p>
 
-    <p>Then I started studying for the MCAT while working full-time, and that belief fell apart fast.</p>
+    <p>Not because I wasn't committed. I was. But commitment doesn't answer the question at 9pm after an 8-hour work day of context-switching between customer calls, Slack threads, and product demos — when your brain is empty and your study session is still ahead of you. The problem wasn't discipline. It was that I had no structure that could survive the day I'd actually had.</p>
 
-    <p>Not because I wasn't committed. I was. But commitment doesn't answer the question at 8pm after a full day of back-to-back meetings, when your brain is empty and your study session is still ahead of you.</p>
-
-    <p>Motivation doesn't fix a fragmented schedule. It doesn't clear a demanding job from your plate or pause a life that keeps moving. What I needed wasn't more drive. I needed a better structure.</p>
-
-    <span class="section-label">The actual problem</span>
-    <h2>Most Productivity Advice Was Built for a Different Life</h2>
-
-    <p>Most time management advice assumes conditions that don't exist for most people — long uninterrupted blocks, predictable energy, a calendar you control. Wake up earlier. Build the perfect routine. Time-block everything. You'll be fine.</p>
-
-    <p>That's not most people's lives. My days shift constantly. Meetings run over. Urgent work cuts in. Evenings don't always arrive with anything left in them. The standard frameworks break the moment life gets messy — and life is mostly messy.</p>
+    <p>I'd tried the standard approaches. Wake up earlier. Time-block everything. Protect your deep work. That advice isn't wrong — it's just written for a life with more stability than mine. My days shift constantly. Frameworks built for predictable schedules break under variability. And most real lives are variable.</p>
 
     <div class="pullquote">
       <p>Real life doesn't have ideal conditions. Any system worth using has to work inside those constraints — not around them.</p>
     </div>
 
-    <span class="section-label">The shift</span>
-    <h2>A Different Question Changed Everything</h2>
-
-    <p>The shift wasn't a new app or a better planner. It was a different question.</p>
-
-    <p>Instead of asking <em>how do I stay motivated?</em> I started asking: <em>what structure makes this easier regardless of how I feel?</em></p>
-
-    <p>I stopped designing around my best days and started designing for my worst ones. I built rules in advance so I wasn't negotiating with myself every night. And I started running actual experiments — not adopting someone else's system wholesale, but testing things against my real schedule and seeing what held.</p>
+    <p>So I stopped trying to fix my motivation and started asking a different question: <em>what structure makes this easier regardless of how I feel?</em> That meant designing around my worst days, not my best ones. Building decision rules in advance so I wasn't negotiating with myself at 9pm. And treating the whole thing as an experiment — testing against my actual schedule, not an imagined one.</p>
 
     <div class="experiment-card">
       <div class="experiment-card-label">⬡ The questions that actually matter</div>
@@ -477,25 +552,33 @@
       <p>What holds up consistently over weeks, not just good days?</p>
     </div>
 
-    <p>Some things worked. A lot didn't, at first. That's the point.</p>
+    <p>That's where System Labs came from. I'm a healthcare technology professional working full-time while studying for a major exam — managing multiple priorities isn't a side challenge for me, it's the entire environment. I wasn't looking for a better productivity framework. I was trying to build something that worked for the life I actually have, not a cleaner version of it.</p>
 
-    <span class="section-label">What this is</span>
-    <h2>Introducing System Labs</h2>
+    <p>Each Experiment Log documents a real problem, a system tested against it, and an honest account of what happened — what held, what broke, what I kept. Field Notes are shorter: mid-experiment observations, things I noticed before I had conclusions. Both are dispatches from inside the process, not summaries from the other side of it.</p>
 
-    <p>This blog is a lab. Not a highlight reel, not a list of life hacks, not a polished system handed down from optimal conditions. A lab.</p>
+    <div class="dict-grid">
 
-    <p>I'm a healthcare technology professional working full-time while studying for a major exam. Managing multiple priorities isn't a side challenge for me — it's the entire environment. So instead of searching for the perfect system, I'm building one.</p>
+      <div class="dict-card dc-teal">
+        <div class="dict-term dt-teal">Experiment Log</div>
+        <span class="dict-pos">noun &nbsp;/ɪkˈsper.ɪ.mənt lɒɡ/</span>
+        <div class="dict-hr"></div>
+        <p class="dict-def">A structured account of a real-world productivity or systems test — including the problem, the method applied, and an honest record of what happened. Neither successes nor failures are edited out.</p>
+      </div>
 
-    <p>Each Experiment Log post documents a real problem, a system tested against it, and an honest account of what happened — what I kept, changed, and dropped. Field Notes are shorter: mid-experiment observations on what's holding, what's fraying, and what surprised me.</p>
+      <div class="dict-card dc-magenta">
+        <div class="dict-term dt-magenta">Field Notes</div>
+        <span class="dict-pos">noun &nbsp;/fiːld nəʊts/</span>
+        <div class="dict-hr"></div>
+        <p class="dict-def">Short, unpolished observations captured mid-experiment. What's holding, what's fraying, what surprised me. Less structured than an Experiment Log — more honest for it.</p>
+      </div>
 
-    <span class="section-label">The only promise</span>
-    <h2>I Won't Pretend This Is Simpler Than It Is</h2>
+    </div>
 
-    <p>Balancing a full-time career and serious long-term goals is genuinely hard. I'm not going to say otherwise.</p>
+    <p>I don't have a clean origin story to offer. There was no single insight or turning point — just a cold cup of coffee, a book I wasn't reading, and the slow recognition that wanting something isn't the same as having a structure for it. That's where I'm starting from.</p>
 
-    <p>What I will show is how the right systems make it more sustainable — less friction, fewer daily decisions, more consistency. Not easy. But doable.</p>
-
-    <p>If you're trying to manage your time, your energy, and your priorities without burning out or constantly falling behind — this is where I'm figuring it out. You're welcome to follow along.</p>
+    <div class="signature-block">
+      <span class="signature-name">— THE SYSTEMS SCIENTIST</span>
+    </div>
 
   </div>
 
